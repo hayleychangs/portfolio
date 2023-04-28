@@ -33,15 +33,23 @@ module.exports={
                 ],
             },
             {
-                test: /\.m?js$/i,
+                test: /\.js|\.jsx$/,
                 exclude: /node_modules/,
                 use: {
                   loader: "babel-loader",
                   options: {
-                    presets: ['@babel/preset-env']
+                    presets: ['@babel/preset-env', '@babel/preset-react']
                   }
                 }
-            }
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+            },
         ]
     },
 }
